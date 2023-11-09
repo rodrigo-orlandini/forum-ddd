@@ -1,5 +1,6 @@
-import { QuestionComment } from "../../enterprise/entities/question-comment";
+import { Either, right } from "@/core/either";
 
+import { QuestionComment } from "../../enterprise/entities/question-comment";
 import { QuestionCommentsRepository } from "../repositories/question-comments-repository";
 
 interface FetchQuestionCommentsUseCaseRequest {
@@ -7,9 +8,9 @@ interface FetchQuestionCommentsUseCaseRequest {
 	page: number;
 }
 
-interface FetchQuestionCommentsUseCaseResponse {
+type FetchQuestionCommentsUseCaseResponse = Either<null, {
 	questionComments: QuestionComment[];
-}
+}>
 
 export class FetchQuestionCommentsUseCase {
 	constructor (
@@ -24,6 +25,6 @@ export class FetchQuestionCommentsUseCase {
 			{ page }
 		);
 
-		return { questionComments };
+		return right({ questionComments });
 	}
 }

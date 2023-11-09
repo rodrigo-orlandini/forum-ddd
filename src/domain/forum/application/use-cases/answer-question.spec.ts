@@ -13,13 +13,13 @@ describe("Answer Question Use Case", () => {
 	});
 
 	it("should be able to answer a question", async () => {
-		const { answer } = await sut.execute({
+		const response = await sut.execute({
 			instructorId: "1",
 			questionId: "1",
 			content: "New test answer"
 		});
 	
-		expect(answer.id).toBeTruthy();
-		expect(inMemoryAnswersRepository.items[0].id).toEqual(answer.id);
+		expect(response.isRight()).toBeTruthy();
+		expect(inMemoryAnswersRepository.items[0]).toEqual(response.value?.answer);
 	});
 });
