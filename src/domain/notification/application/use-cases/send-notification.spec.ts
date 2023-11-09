@@ -19,7 +19,7 @@ describe("Send Notification Use Case", () => {
 			content: "New test notification"
 		});
 	
-		expect(response.isRight).toBeTruthy();
+		expect(response.isRight()).toBeTruthy();
 		expect(inMemoryNotificationsRepository.items[0]).toEqual(response.value?.notification);
 	});
 });
