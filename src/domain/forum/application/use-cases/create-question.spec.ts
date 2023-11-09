@@ -24,7 +24,7 @@ describe("Create Question Use Case", () => {
 			attachmentsIds: ["1", "2"]
 		});
 	
-		expect(response.isRight).toBeTruthy();
+		expect(response.isRight()).toBeTruthy();
 		expect(inMemoryQuestionsRepository.items[0]).toEqual(response.value?.question);
 		expect(inMemoryQuestionsRepository.items[0].attachments.currentItems).toHaveLength(2);
 		expect(inMemoryQuestionsRepository.items[0].attachments.currentItems).toEqual([
