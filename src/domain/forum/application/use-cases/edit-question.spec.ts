@@ -7,7 +7,7 @@ import { makeQuestion } from "test/factories/make-question";
 import { InMemoryQuestionAttachmentsRepository } from "test/repositories/in-memory-question-attachments-repository";
 import { makeQuestionAttachment } from "test/factories/make-question-attachment";
 
-import { NotAllowedError } from "./errors/not-allowed-error";
+import { NotAllowedError } from "../../../../core/errors/not-allowed-error";
 
 let sut: EditQuestionUseCase;
 let inMemoryQuestionAttachmentsRepository: InMemoryQuestionAttachmentsRepository;

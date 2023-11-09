@@ -10,7 +10,7 @@ import { InMemoryQuestionAttachmentsRepository } from "test/repositories/in-memo
 import { makeAnswer } from "test/factories/make-answer";
 import { makeQuestion } from "test/factories/make-question";
 
-import { NotAllowedError } from "./errors/not-allowed-error";
+import { NotAllowedError } from "../../../../core/errors/not-allowed-error";
 
 let sut: ChooseQuestionBestAnswerUseCase;
 let inMemoryAnswerAttachmentsRepository: InMemoryAnswerAttachmentsRepository;
