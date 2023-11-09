@@ -3,11 +3,13 @@ import { Either, right } from "@/core/either";
 
 import { Question } from "../../enterprise/entities/question";
 import { QuestionsRepository } from "../repositories/questions-repository";
+import { QuestionAttachment } from "../../enterprise/entities/question-attachment";
 
 interface CreateQuestionUseCaseRequest {
 	authorId: string;
 	title: string;
 	content: string;
+	attachmentsIds: string[];
 }
 
 type CreateQuestionUseCaseResponse = Either<null, {
@@ -19,12 +21,23 @@ export class CreateQuestionUseCase {
 		private questionsRepository: QuestionsRepository
 	) {}
 
-	public async execute({ authorId, title, content }: CreateQuestionUseCaseRequest): Promise<CreateQuestionUseCaseResponse> {
+	public async execute({ 
+		authorId, title, content, attachmentsIds 
+	}: CreateQuestionUseCaseRequest): Promise<CreateQuestionUseCaseResponse> {
 		const question = Question.create({
 			authorId: new UniqueEntityID(authorId),
 			title,
 			content
 		});
+
+		const questionAttachments = attachmentsIds.map(attachmentId => 
+			QuestionAttachment.create({ 
+				attachmentId: new UniqueEntityID(attachmentId), 
+				questionId: question.id 
+			})
+		);
+
+		question.attachments = questionAttachments;
 
 		await this.questionsRepository.create(question);
 
