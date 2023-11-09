@@ -49,7 +49,7 @@ describe("Edit Answer Use Case", () => {
 		]);
 	});
 
-	it.only("should not be able to edit an answer from another user", async () => {
+	it("should not be able to edit an answer from another user", async () => {
 		const newAnswer = makeAnswer({
 			authorId: new UniqueEntityID("author-1")
 		}, new UniqueEntityID("answer-1"));
