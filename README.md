@@ -22,7 +22,7 @@ However, as DDD is just a software design methodology and not a software archite
 - **Infrastructure**: Where are the implementation of external requirements for your application, such as **database**, external APIs or other services.
 
 <div style="display: flex; justify-content: center">
-	<img src=".markdown/clean-arch.png" />
+	<img src=".markdown/clean-arch.png" width="400" height="400" />
 </div>
 
 Each layer of the project must respect the principles of **SOLID** and each one has its own level of decoupling. Consider the domain as the core of your software, so it must be completly independent. The use cases use the domain, but must not depend on any infrastructure implementation, only on interfaces (Principle of Dependency Inversion). Finally, infrastructure implementations must respect contracts created in the application's internal layers.
