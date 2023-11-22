@@ -2,14 +2,12 @@
 
 It is a forum application built to practice DDD (Domain Driven Design) and Clean Architecture concepts.
 
-### Topics
-- [Technologies](#technologies)
-- [Summary of concepts](#summary-of-concepts)
-- [Usage](#usage)
----
-
 ### Technologies
 [![Typescript](.markdown/typescript.png "Typescript")](https://www.typescriptlang.org/)
+
+### Topics
+- [Summary of concepts](#summary-of-concepts)
+- [Usage](#usage)
 
 ---
 
